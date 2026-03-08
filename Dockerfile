@@ -37,7 +37,7 @@ http {
   }
   
   upstream openclaw_backend {
-    server 127.0.0.1:18789;
+    server localhost:18789;
   }
   
   server {
@@ -70,4 +70,4 @@ WORKDIR /app
 EXPOSE 8080 18789
 
 # Start both services: nginx and OpenClaw
-CMD ["sh", "-c", "nginx -g 'daemon off;' & cd / && node openclaw.mjs gateway --allow-unconfigured --bind 0.0.0.0 --listen-port 18789 && wait"]
+CMD ["sh", "-c", "nginx -g 'daemon off;' & cd / && node openclaw.mjs gateway --allow-unconfigured --bind 0.0.0.0 && wait"]
